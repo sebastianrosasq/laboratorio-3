@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
             MaterialTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     when (pantalla) {
+                        "inicio" -> Greeting("Sebastian")
                         "simple" -> GreetingCard(etapa = 0)
                         "imagen" -> GreetingCard(etapa = 1)
                         "boton" -> GreetingCard(etapa = 2)
@@ -42,6 +43,13 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Composable
+fun Greeting(name: String) {
+    Text("Hello $name!", Modifier.statusBarsPadding().padding(16.dp))
+}
+
+@Preview(showBackground = true) @Composable fun GreetingPreview() { Greeting("Sebastian") }
 
 @Composable
 fun GreetingCard(etapa: Int = 3) {
