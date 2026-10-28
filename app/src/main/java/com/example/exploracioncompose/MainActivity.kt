@@ -5,12 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -87,34 +82,7 @@ fun GreetingCard(etapa: Int = 3) {
     }
 }
 
-@Composable
-fun TarjetaPresentacion() {
-    val verde = Color(0xFF006D3B)
-    Box(Modifier.fillMaxSize().background(Color(0xFFD2E8D4))) {
-        Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(painterResource(R.drawable.android_logo), contentDescription = "Android", modifier = Modifier.size(110.dp))
-            Text("Jennifer Doe", fontSize = 40.sp, color = Color(0xFF101D13))
-            Text("Android Developer Extraordinaire", fontSize = 16.sp, color = verde, fontWeight = FontWeight.Bold)
-        }
-        Column(Modifier.align(Alignment.BottomCenter).padding(bottom = 50.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            DatoContacto(Icons.Filled.Call, "+11 (123) 444 555 666", verde)
-            DatoContacto(Icons.Filled.Share, "@AndroidDev", verde)
-            DatoContacto(Icons.Filled.Email, "jen.doe@android.com", verde)
-        }
-    }
-}
-
-@Composable
-fun DatoContacto(icono: androidx.compose.ui.graphics.vector.ImageVector, dato: String, color: Color) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Icon(icono, contentDescription = null, tint = color)
-        Spacer(Modifier.width(24.dp))
-        Text(dato, fontSize = 16.sp)
-    }
-}
-
 @Preview(showBackground = true) @Composable fun VistaSimple() { GreetingCard(0) }
 @Preview(showBackground = true) @Composable fun VistaImagen() { GreetingCard(1) }
 @Preview(showBackground = true) @Composable fun VistaBoton() { GreetingCard(2) }
 @Preview(showBackground = true) @Composable fun VistaFila() { GreetingCard(3) }
-@Preview(showBackground = true) @Composable fun VistaTarjeta() { TarjetaPresentacion() }
